@@ -9,6 +9,7 @@ function App() {
 
   return (
   <div className="App">
+    <h2>Что-нибудь нормальное</h2>
     <Mode mode={mode} changeMode={setMode}/>
     <TourList mode={mode}/>
   </div>
