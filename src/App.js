@@ -9,6 +9,7 @@ function App() {
 
   return (
   <div className="App">
+    <h1>hello from Earth 2!</h1>
     <Mode mode={mode} changeMode={setMode}/>
     <TourList mode={mode}/>
   </div>
