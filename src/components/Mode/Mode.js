@@ -1,11 +1,15 @@
+import { useSelector, useDispatch } from 'react-redux'
+import {changeMode} from '../../features/mode/modeSlice'
 
 
-function Mode({mode, changeMode}) {
-    let changeModeText = mode.current === "day" ? "Ночной режим" : "Дневной режим"
+function Mode() {
+    const mode = useSelector((state) => state.mode.current)
+    const dispatch = useDispatch()
+
+    let changeModeText = mode === "day" ? "Ночной режим" : "Дневной режим"
     
     const buttonHandler = () => {
-        const newValue = mode.current === "day" ? "night" : "day"
-        changeMode({current: newValue})
+        dispatch(changeMode())
     }
 
     return <button onClick={buttonHandler}>{ changeModeText }</button>
