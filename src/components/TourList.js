@@ -1,8 +1,9 @@
 import TourItem from './TourItem';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux'
 
-export default function TourList({mode}) {
+export default function TourList() {
     // const tours = [
     //     {
     //         nameOfTour: 'Каньон "Сказка"',
@@ -46,8 +47,10 @@ export default function TourList({mode}) {
             backgroundColor: "black",
         }
     }
+    
+    const currentMode = useSelector((state) => state.mode.current)
 
-    const currentStyle = mode.current === "day" ? style.day : style.night
+    const currentStyle = currentMode === "day" ? style.day : style.night
 
     return (
         <div style={currentStyle}>
