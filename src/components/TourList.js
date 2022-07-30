@@ -34,7 +34,7 @@ export default function TourList() {
     useEffect(getData, [])
 
     function items(element, index) {
-        return <TourItem key={index} tourName={element.title}/>
+        return <TourItem key={index} tourObject={element}/>
     }
 
     const style = {
