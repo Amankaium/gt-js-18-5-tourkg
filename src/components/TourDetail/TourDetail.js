@@ -1,17 +1,16 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 
 export default function TourDetail() {
     const [tour, setTour] = useState({})
-
+    const tours = useSelector(state => state.tours.data)
     const { id } = useParams()
 
     function getTour() {
-        axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`)
-            .then(response => setTour(response.data))
+        const ourTour = tours.find(item => Number(item.id)===Number(id))
+        setTour(ourTour)
     }
 
     useEffect(getTour, [])
